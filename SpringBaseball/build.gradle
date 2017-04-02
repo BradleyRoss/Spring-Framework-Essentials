@@ -18,3 +18,22 @@ dependencies {
     testCompile "org.springframework:spring-test:$springVersion"
     testCompile 'junit:junit:4.12'
 }
+javadoc{
+        source = sourceSets.main.allJava
+        destinationDir = file("./doc/")
+        classpath = configurations.compile
+        setTitle("Spring Baseball API")
+        options.memberLevel = JavadocMemberLevel.PRIVATE
+        setVerbose(false)
+        options.setLinkSource(true)
+        options.setOverview("./overview.html")
+        options.setSplitIndex(true)
+        options.setHeader("Spring Baseball API")
+        options.setFooter("Spring Baseball API")
+        options.links += "http://docs.spring.io/spring/docs/current/javadoc-api/"
+        options.links += "https://docs.oracle.com/javase/8/docs/api/"
+        options.links += "https://eclipse.org/aspectj/doc/released/weaver-api/"
+        options.links += "https://eclipse.org/aspectj/doc/released/runtime-api/"
+        options.links += "https://commons.apache.org/proper/commons-dbcp/api-2.1.1/"
+        
+    }

@@ -18,8 +18,10 @@ import java.util.List;
 public class JdbcAccountRepository implements AccountRepository {
     private JdbcTemplate template;
     private static long nextId = 4;
-
-    @Autowired
+    /*
+     * Can a constructor be Autowired?
+     */
+   //  @Autowired
     public JdbcAccountRepository(DataSource dataSource) {
         template = new JdbcTemplate(dataSource);
     }
@@ -42,12 +44,19 @@ public class JdbcAccountRepository implements AccountRepository {
         String sqlTxt = "select count(*) from account";
         return template.queryForObject(sqlTxt, Integer.class);
     }
-
+    /**
+     * Method for creating account.
+     * 
+     * <p>Since the value returned by template.update is not
+     *    used it is not necessary to place the return value
+     *    in a variable.</p>
+     */
     @Override
     public Long createAccount(BigDecimal initialBalance) {
         String sqlTxt = "insert into account(id,balance) values(?,?)";
         long id = nextId++;
-        int uc = template.update(sqlTxt, id, initialBalance);
+        // int uc = template.update(sqlTxt, id, initialBalance);
+        template.update(sqlTxt, id, initialBalance);
         return id;
     }
 
