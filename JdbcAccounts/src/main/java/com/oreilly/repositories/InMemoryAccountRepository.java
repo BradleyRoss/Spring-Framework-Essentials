@@ -10,29 +10,15 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/**
- * This implementation of {@link AccountRepository} is used with the
- * development profile.
- * 
- * It stores the contents of the repository as Java data structures.
- * 
- *
- */
+
 @Repository
 @Profile("dev")
 public class InMemoryAccountRepository implements AccountRepository {
-	/**
-	 * Storage of account data.
-	 */
     private static Map<Long, Account> accountMap =
             new ConcurrentHashMap<Long, Account>();
-    /**
-     * Next account number to be issued.
-     */
+
     private static Long nextId = 4L;
-    /*
-     * Initializes account information.
-     */
+
     static {
         accountMap.put(1L, new Account(1L, new BigDecimal("100.0")));
         accountMap.put(2L, new Account(2L, new BigDecimal("120.0")));
