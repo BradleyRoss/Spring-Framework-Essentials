@@ -23,7 +23,6 @@ import java.math.BigDecimal;
  *
  */
 @Service @Transactional
-@Profile("test")
 public class AccountService {
 
     @Autowired

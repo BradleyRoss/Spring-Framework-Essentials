@@ -25,21 +25,15 @@ javadoc{
         setTitle("Spring Baseball API")
         options.memberLevel = JavadocMemberLevel.PRIVATE
         setVerbose(false)
+        options.setLinkSource(true)
+        options.setOverview("./overview.html")
+        options.setSplitIndex(true)
         options.setHeader("Spring Baseball API")
         options.setFooter("Spring Baseball API")
-        options.setLinkSource(true)
-        options.setOverview("./src/main/javadoc/overview.html")
-        options.setSplitIndex(true)
-
         options.links += "http://docs.spring.io/spring/docs/current/javadoc-api/"
         options.links += "https://docs.oracle.com/javase/8/docs/api/"
-        options.links += "http://www.eclipse.org/aspectj/doc/released/weaver-api/"
-
-       
-        options.links += "http://www.eclipse.org/aspectj/doc/released/aspectj5rt-api/"
-        
-         options.links += "http://www.eclipse.org/aspectj/doc/released/runtime-api/"
-
+        options.links += "https://eclipse.org/aspectj/doc/released/weaver-api/"
+        options.links += "https://eclipse.org/aspectj/doc/released/runtime-api/"
         options.links += "https://commons.apache.org/proper/commons-dbcp/api-2.1.1/"
         
     }

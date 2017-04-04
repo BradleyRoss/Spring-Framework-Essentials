@@ -11,11 +11,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /**
- * This implementation of {@link AccountRepository} interface
- * is used with the
+ * This implementation of {@link AccountRepository} is used with the
  * development profile.
  * 
- * It stores the contents of the repository as Java data structures.
+ * <p>It stores the contents of the repository as Java data structures.</p>
  * 
  *
  */

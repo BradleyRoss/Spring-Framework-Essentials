@@ -11,6 +11,7 @@ import org.springframework.jdbc.datasource.AbstractDataSource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import java.util.Properties;
@@ -43,6 +44,12 @@ public class AppConfig {
      * Configures bean for test data source.
      * @return Bean
      * @see EmbeddedDatabaseBuilder
+     * 
+     * <p>{@link DataSource} does not have shutdown method.  {@link EmbeddedDatabase}
+     *    and {@link BasicDataSource} do have shutdown method.</p>
+     * @return {@link EmbeddedDatabase}
+     * @see EmbeddedDatabaseBuilder
+     * @see EmbeddedDatabase
      */
     @Bean(name = "dataSource", destroyMethod = "shutdown")
     @Profile("test")
@@ -67,6 +74,10 @@ public class AppConfig {
     }
     /**
      * Configures bean for production data source.
+<<<<<<< HEAD
+=======
+     * <p>Should this have a shutdown method specified?</p>
+>>>>>>> fd2b606e0138ef2ee47d2e508decb82d9ff786e4
      * @return bean
      */
     @Bean(name = "dataSource")

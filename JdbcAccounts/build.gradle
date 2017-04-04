@@ -30,7 +30,6 @@ javadoc{
         options.setLinkSource(true)
         options.setOverview("./src/main/javadoc/overview.html")
         options.setSplitIndex(true)
-
         options.links += "http://docs.spring.io/spring/docs/current/javadoc-api/"
         options.links += "https://docs.oracle.com/javase/8/docs/api/"
         options.links += "https://eclipse.org/aspectj/doc/released/weaver-api/"
