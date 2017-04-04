@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.ArrayList;
 // import org.apache.commons.dbcp2.BasicDataSource;
 /**
- * Test driver using dev profile.
+ * Test driver using multiple profiles.
  * 
  * <p>Changes</p>
  * <ul>
@@ -69,17 +69,18 @@ public class RunProfiles {
 			 * This will list all beans that are implementations
 			 * of the DataSource interface.
 			 */
+			System.out.println();
 			System.out.println("Beans of type DataSource");
 			String[] beanList = context.getBeanNamesForType(DataSource.class);
 			if (beanList == null || beanList.length == 0) {
 				System.out.println("     No beans found");
 			} else {
 				for (String name : beanList) {
-					System.out.println("     " + name);
 					DataSource temp = context.getBean(name, DataSource.class);
-					System.out.println(temp.getClass().getName());
+					System.out.println("     " + name + " : " + temp.getClass().getName());
 				}
 			}
+			System.out.println();
 			System.out.println("Looking for nonexistent bean");
 			try {
 				context.getBean("xxx");
