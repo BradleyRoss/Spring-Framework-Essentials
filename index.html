@@ -6,5 +6,64 @@
 </head>
 <body>
 <h1>Spring Framework Essentials Documentation</h1>
+<p>This page can be found at 
+   <a href="https://bradleyross.github.io/Spring-Framework-Essentials" 
+   target="_blank">
+   https://bradleyross.github.io/Spring-Framework-Essentials</a>
+   while the actual project is at
+   <a href="https://www.github.com/bradleyross/Spring-Framework-Essentials"
+   target="_blank">
+   https://www.github.com/bradleyross/Spring-Framework-Essentials</a>.
+   </p>
+<h3>BootAccounts</h3>
+<p><a href="BootAccounts/doc/" target="_blank">The Javadocs are located here</a></p>
+<h3>DataAccounts</h3>
+<p>This represents examples of Spring Data  and
+   <a href="DataAccounts/doc/" target="_blank">the Javadocs are located here</a>.
+   The examples are used in the video Spring Data JPA in the section Hibernate/JPA and
+   Spring Data.</p>
+<h3>JdbcAccount</h3>
+<p><a href="JdbcAccounts/doc/" target="_blank">The Javadocs are loctaed here</a> and the
+   code is used in the section Data Access using JdbcTemplate.</p>
+
+<h3>JpaAccounts</h3>
+<p>These examples involve the use of Hibernate and JPA (Java Persistance Architecture) and
+   <a href="JpaAccounts/doc/" target="_blank">the Javadocs are located here.</a><p>
+
+<h3>SpringBaseball</h3>
+<p><a href="SpringBaseball/doc/" target="_blank">The Javadocs are located here</a>
+   and the code is used in the following sections:  Building Applications,
+   Configuring Beans, and Aspect Oriented Programming.</p>
+
+<h3>Javadocs for individual projects</h3>
+<ul>
+<li><a href="BootAccounts/doc/" target="_blank">Boot Accounts</a>
+    (In Progress)</li>
+<li><a href="DataAccounts/doc/" target="_blank">Data Accounts</a>
+    (In Progress)</li>
+<li><a href="JdbcAccounts/doc/" target="_blank">JDBC Accounts</a></li>
+
+<li><a href="JpaAccounts/doc/" target="_blank">JPA Accounts</a>
+    (In Progress)</li>
+<li><a href="SpringBaseball/doc/" target="_blank">Spring Baseball</a></li>
+</ul>
+
+<h3>Comments and Errata</h3>
+<ul>
+<li>In com.oreilly.repositories.JdbcAccountRepository, the constructor
+    has an Autowired annotation.  This appears to be incorrect.</li>
+<li>A number of import statements were commented out because they are
+    unused and gave
+    warning messages in Eclipse.</li>
+<li>I have found import static, import with wildcards hurt maintainability and
+    readability in the long run.  They can also cause problems with your code if your external 
+    jar files change.  The reason for this is that a change in the external code can cause
+    a potential conflict to exist where one did not exist before.</li>
+<li>The SuppressWarnings("Duplicates") exists in IntelliJ, but does appear in Eclipse.</li>
+<li>The build process using Gradle on MacOS Eclipse can generate a warning indicating that a 
+    copy of .DS_Store can't be copied to the output folder.  The file .DS_Store is a special file indicating 
+    how the directory should appear in Finder and should not be copied by the build tasks.  The warning can
+    be ignored.</li>
+</ul>
 </body>
 </html>
