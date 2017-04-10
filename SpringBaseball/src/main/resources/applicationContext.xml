@@ -11,10 +11,16 @@
     <bean id="nf" class="java.text.NumberFormat" factory-method="getCurrencyInstance" />
 
     <context:component-scan base-package="com.oreilly" />
-
-    <bean id="redSox" class="com.oreilly.entities.RedSox" />
+	
+   
+    <bean id="redSox" class="com.oreilly.entities.BaseballTeam" >
+        <property name="name" value="Chicago Red Sox"/>
+        </bean>
     <bean id="cubs" class="com.oreilly.entities.Cubs" />
-
+ 
+	<bean id ="team" class="com.oreilly.entities.BaseballTeam" scope="prototype">
+		<property name="name" value="unknown" />
+		</bean>
     <bean id="game" class="com.oreilly.entities.BaseballGame"
         scope="prototype">
         <property name="awayTeam" ref="redSox" />
@@ -22,5 +28,7 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
 
+    <!--  
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" />
+    -->
 </beans>

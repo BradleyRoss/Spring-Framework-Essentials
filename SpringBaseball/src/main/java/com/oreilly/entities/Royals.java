@@ -8,7 +8,9 @@ public class Royals implements Team {
     public String getName() {
         return "Kansas City Royals";
     }
-
+    public void setName(String name)  {
+    	
+    }
     public String toString() {
         return getName();
     }

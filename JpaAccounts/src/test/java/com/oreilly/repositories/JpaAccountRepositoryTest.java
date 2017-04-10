@@ -5,7 +5,7 @@ import com.oreilly.entities.Account;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ActiveProfiles;
+// import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,8 +16,9 @@ import java.util.List;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.number.BigDecimalCloseTo.closeTo;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
+import org.junit.Assert;
+// import static org.junit.Assert.assertEquals;
+// import static org.junit.Assert.assertThat;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppConfig.class)
@@ -30,35 +31,41 @@ public class JpaAccountRepositoryTest {
     @Test
     public void testGetAccounts() throws Exception {
         List<Account> accounts = repository.getAccounts();
-        assertThat(accounts.size(), is(3));
+        Assert.assertNotNull("accounts is null", accounts);
+        Assert.assertThat(accounts.size(), is(3));
     }
 
     @Test
     public void testGetAccount() throws Exception {
+    	initialize();
+    	Assert.assertNotNull("repository is null", repository);
         Account account = repository.getAccount(1L);
-        assertThat(account.getId(), is(1L));
-        assertThat(new BigDecimal("100.0"),
+        Assert.assertNotNull("account is null", account);
+        Assert.assertThat("Numbers are close enough", new BigDecimal("100.0"),
                 is(closeTo(account.getBalance(), new BigDecimal("0.01"))));
     }
 
     @Test
     public void testGetNumberOfAccounts() throws Exception {
-        assertThat(repository.getNumberOfAccounts(), is(3));
+    	initialize();
+    	System.out.println("testGetNumberOfAccounts: starting"); 
+        Assert.assertThat(repository.getNumberOfAccounts(), is(3));
     }
 
     @Test
     public void testCreateAccount() throws Exception {
+    	initialize();
         Long id = repository.createAccount(new BigDecimal("250.00"));
-        assertThat(id, is(notNullValue()));
-
+        Assert.assertThat("id value is not null", id, is(notNullValue()));
         Account account = repository.getAccount(id);
-        assertThat(account.getId(), is(id));
-        assertThat(account.getBalance(), is(closeTo(new BigDecimal("250.0"),
+        Assert.assertThat(account.getId(), is(id));
+        Assert.assertThat("value is close", account.getBalance(), is(closeTo(new BigDecimal("250.0"),
                 new BigDecimal("0.01"))));
     }
 
     @Test
     public void testUpdateAccount() throws Exception {
+    	initialize();
         Account account = repository.getAccount(1L);
         BigDecimal current = account.getBalance();
         BigDecimal amount = new BigDecimal("50.0");
@@ -66,7 +73,7 @@ public class JpaAccountRepositoryTest {
         repository.updateAccount(account);
 
         Account again = repository.getAccount(1L);
-        assertThat(again.getBalance(), is(closeTo(current.add(amount),
+        Assert.assertThat(again.getBalance(), is(closeTo(current.add(amount),
                 new BigDecimal("0.01"))));
     }
 
@@ -75,6 +82,11 @@ public class JpaAccountRepositoryTest {
         for (Account account : repository.getAccounts()) {
             repository.deleteAccount(account.getId());
         }
-        assertThat(repository.getNumberOfAccounts(), is(0));
+        Assert.assertThat(repository.getNumberOfAccounts(), is(0));
     }
+    
+    public void initialize() {
+ 	
+   	
+   }
 }

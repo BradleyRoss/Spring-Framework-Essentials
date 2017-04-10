@@ -74,10 +74,7 @@ public class AppConfig {
     }
     /**
      * Configures bean for production data source.
-<<<<<<< HEAD
-=======
      * <p>Should this have a shutdown method specified?</p>
->>>>>>> fd2b606e0138ef2ee47d2e508decb82d9ff786e4
      * @return bean
      */
     @Bean(name = "dataSource")

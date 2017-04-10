@@ -1,6 +1,25 @@
 <html>
 <head></head>
 <body>
-<p>This is the Javadoc for the JPA Accounts project from the Safari Learning Path (O'REILLY Learn Spring and Spring Boot)
+<p>This is the Javadoc for the JPA Accounts (Java Persistence Architecture) project from the Safari Learning Path 
+<i>O'REILLY Learn Spring and Spring Boot)</i>.</p>
+<h3>Javadocs</h3>
+<ul>
+    <li><a href="https://docs.oracle.com/javaee/7/api/" target="_blank">Java J2EE 7</a> See javax.persistence package and 
+        sub-packages such as javax.persistence.annotation.</li>
+    <li><a href="https://docs.oracle.com/javase/8/docs/api/" target="_blank">Java J2SE 8</a></li>
+</ul>
+<h3>Comments</h3>
+<ul>
+<li>It is necessary to manually load data.sql into the database before running the tests.  It looks like
+    the table Account will be created by RunDemo, but the program will fail if the table 
+    already exists.  So the steps appear to be, run RunDemo or the test suite, load the data into
+    the table, and then run the test suites.</li>
+<li>After the Account table has been created nd the initial data loaded, you can run the test
+    sets as often as you want.</li>
+<li>In the test sets you have static import statements.  These can be very confusing and troublesome.
+    I have also found import statements with wild card characters (asterisks) to
+    be a potential source of confusion at a later date.</li>
+</ul>
 </body>
 </html>

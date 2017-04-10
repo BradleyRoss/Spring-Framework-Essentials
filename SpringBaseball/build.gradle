@@ -26,7 +26,7 @@ javadoc{
         options.memberLevel = JavadocMemberLevel.PRIVATE
         setVerbose(false)
         options.setLinkSource(true)
-        options.setOverview("./overview.html")
+        options.setOverview("./src/main/javadoc/overview.html")
         options.setSplitIndex(true)
         options.setHeader("Spring Baseball API")
         options.setFooter("Spring Baseball API")

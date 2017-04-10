@@ -1,14 +1,21 @@
 package com.oreilly.config;
 
-import com.oreilly.entities.*;
+import com.oreilly.entities.Game;
+import com.oreilly.entities.BaseballGame;
+import com.oreilly.entities.Team;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.*;
+// import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+// import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.context.annotation.Scope;
 
 import javax.sql.DataSource;
 import java.text.NumberFormat;
 import java.util.List;
-import java.util.Set;
+// import java.util.Set;
 
 @Configuration
 @ComponentScan(basePackages = "com.oreilly")

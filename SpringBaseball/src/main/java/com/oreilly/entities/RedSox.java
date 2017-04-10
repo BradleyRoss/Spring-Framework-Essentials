@@ -8,7 +8,9 @@ public class RedSox implements Team {
     public String getName() {
         return "Boston Red Sox";
     }
-
+    public void setName(String name) {
+    	
+    }
     public String toString() {
         return getName();
     }

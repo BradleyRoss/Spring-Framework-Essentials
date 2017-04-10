@@ -17,4 +17,5 @@ public interface AccountRepository {
     int deleteAccount(Long id);
 
     void updateAccount(Account account);
+    
 }

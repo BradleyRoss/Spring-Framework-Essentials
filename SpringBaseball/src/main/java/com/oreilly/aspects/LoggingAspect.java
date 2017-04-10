@@ -54,7 +54,8 @@ public class LoggingAspect {
      * Allows running aspects before and after bean execution.
      * @param pjp Join Point for operation
      * @return Result of operation
-     * @throws Throwable
+     * @throws Throwable will throw exceptions that occur during
+     *         the execution of the method.
      */
     @Around("execution(String playGame())")
     public Object checkForRain(ProceedingJoinPoint pjp) throws Throwable {

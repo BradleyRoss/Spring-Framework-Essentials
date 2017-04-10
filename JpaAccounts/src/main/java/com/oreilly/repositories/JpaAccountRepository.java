@@ -14,7 +14,11 @@ public class JpaAccountRepository implements AccountRepository {
 
     @PersistenceContext
     private EntityManager entityManager;
-
+    /**
+     * Get all accounts.
+     * 
+     * <p>This is a special Hibernate sequence (TBR).</p>
+     */
     @Override
     public List<Account> getAccounts() {
         return entityManager.createQuery("select a from Account a", Account.class)
@@ -28,16 +32,22 @@ public class JpaAccountRepository implements AccountRepository {
 
     @Override
     public int getNumberOfAccounts() {
+    	System.out.println("getNumberOfAccounts: starting");
         String jpaTxt = "select count(a.id) from Account a";
+
         Long result = (Long) entityManager.createQuery(jpaTxt)
                 .getSingleResult();
+        System.out.println("getNumberOfAccounts: " + result);
         return result.intValue();
     }
 
     @Override
     public Long createAccount(BigDecimal initialBalance) {
+    	System.out.println("createAccount: " + initialBalance);
         long id = nextId++;
+        System.out.println("createAccount:  " + id +  " " + initialBalance);
         entityManager.persist(new Account(id, initialBalance));
+        
         return id;
     }
 
@@ -49,6 +59,8 @@ public class JpaAccountRepository implements AccountRepository {
 
     @Override
     public void updateAccount(Account account) {
-        entityManager.merge(account);
+        entityManager.persist(account);
     }
+
+
 }
