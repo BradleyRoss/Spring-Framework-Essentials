@@ -1,8 +1,8 @@
 package com.oreilly.config;
 
-import com.oreilly.repositories.AccountRepository;
-import com.oreilly.repositories.JdbcAccountRepository;
-import com.oreilly.services.AccountService;
+// import com.oreilly.repositories.AccountRepository;
+// import com.oreilly.repositories.JdbcAccountRepository;
+// import com.oreilly.services.AccountService;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
@@ -11,6 +11,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
