@@ -3,26 +3,15 @@ package com.oreilly.services;
 import com.oreilly.entities.Account;
 import com.oreilly.repositories.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-// import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
-import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
-/**
- * The methods of this class are called by the
- * business logic.  
- * 
- * <p>The methods in the
- *    bean identified by the {@link Service} annotation
- *    then call the
- *    appropriate methods in the bean
- *    identified by the {@link Repository}.</p>
- * 
- *
- */
+
 @Service @Transactional
+@Profile("test")
 public class AccountService {
 
     @Autowired

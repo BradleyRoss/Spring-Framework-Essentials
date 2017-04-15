@@ -35,5 +35,4 @@ javadoc{
         options.links += "https://eclipse.org/aspectj/doc/released/weaver-api/"
         options.links += "https://eclipse.org/aspectj/doc/released/runtime-api/"
         options.links += "https://commons.apache.org/proper/commons-dbcp/api-2.1.1/"
-        
     }
